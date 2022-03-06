@@ -1,17 +1,25 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  let final = 0
+  for (number in array) {
+    let answer = target - array[number]
+    let otherNumbers = [...array]
+    otherNumbers[number] = ""
+    final += otherNumbers.includes(answer)*1
+  }
+  return !!final
 }
 
 /* 
-  Write the Big O time complexity of your function here
+  O(n^2)
 */
 
 /* 
-  Add your pseudocode here
-*/
-
-/*
-  Add written explanation of your solution here
+Do this for every X in the array:
+- Target value minus X is the "answer" number we're looking for
+- Create a new array that has all the values from the original array other than X
+- Check if "answer" matches any numbers in new array
+- If yes, ever, return true
+- If always no, return false
 */
 
 // You can run `node index.js` to view these console logs
